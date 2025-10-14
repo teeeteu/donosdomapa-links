@@ -12,15 +12,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      /* Paleta neon (altere aqui) */
-      --bg:#0b0d10;          /* fundo geral */
-      --bg-2:#0f1217;        /* painéis/cards */
-      --accent:#00ff94;      /* verde neon */
-      --accent-2:#f2d13d;    /* amarelo/gold */
-      --text:#e8f1ff;        /* texto principal */
-      --muted:#9aa7b6;       /* texto secundário */
+      --bg:#0b0d10;
+      --bg-2:#0f1217;
+      --accent:#00ff94;
+      --accent-2:#f2d13d;
+      --text:#e8f1ff;
+      --muted:#9aa7b6;
       --shadow: 0 0 10px rgba(0,255,148,.35), 0 0 30px rgba(0,255,148,.2);
       --shadow-amber: 0 0 10px rgba(242,209,61,.3), 0 0 30px rgba(242,209,61,.15);
       --radius: 22px;
@@ -29,7 +29,7 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+      margin:0; font-family: Montserrat, sans-serif;
       color:var(--text); background: var(--bg);
       background-image:
         radial-gradient(1200px 600px at 10% -10%, rgba(0,255,148,.06), transparent 40%),
@@ -38,59 +38,19 @@
         linear-gradient(180deg, rgba(255,255,255,.015), rgba(255,255,255,0));
       background-attachment: fixed;
     }
-    .wrap{
-      max-width: var(--maxw);
-      margin: 48px auto; padding: clamp(16px, 4vw, 32px);
-    }
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
-      border: 1px solid rgba(255,255,255,.06);
-      border-radius: var(--radius);
-      padding: clamp(20px, 3.4vw, 36px);
-      box-shadow: 0 12px 40px rgba(0,0,0,.35);
-      position: relative;
-      overflow: hidden;
-    }
-    .glow-ring{
-      position:absolute; inset:-2px; border-radius: calc(var(--radius) + 2px);
-      background: radial-gradient(600px 300px at 10% 0%, rgba(0,255,148,.08), transparent 40%),
-                  radial-gradient(600px 300px at 90% 0%, rgba(242,209,61,.08), transparent 40%);
-      pointer-events:none;
-      filter: blur(14px);
-    }
+    .wrap{max-width: var(--maxw);margin: 48px auto; padding: clamp(16px, 4vw, 32px);}
+    .card{background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));border: 1px solid rgba(255,255,255,.06);border-radius: var(--radius);padding: clamp(20px, 3.4vw, 36px);box-shadow: 0 12px 40px rgba(0,0,0,.35);position: relative;overflow: hidden;}
+    .glow-ring{position:absolute; inset:-2px; border-radius: calc(var(--radius) + 2px);background: radial-gradient(600px 300px at 10% 0%, rgba(0,255,148,.08), transparent 40%),radial-gradient(600px 300px at 90% 0%, rgba(242,209,61,.08), transparent 40%);pointer-events:none;filter: blur(14px);}
     .header{display:flex; align-items:center; gap:20px; flex-wrap:wrap}
-    .avatar{
-      width:96px; height:96px; border-radius:50%;
-      background:#111 url('https://images.unsplash.com/photo-1541532713592-79a0317b6b77?q=80&w=256&auto=format&fit=crop') center/cover no-repeat;
-      box-shadow: 0 6px 24px rgba(0,0,0,.4), var(--shadow);
-      border:2px solid rgba(255,255,255,.08);
-      flex: none;
-    }
-    .title-block h1{
-      font-family: Orbitron, Montserrat, sans-serif; margin:0; font-size: clamp(28px, 5vw, 40px);
-      letter-spacing:.5px; text-transform: uppercase;
-      text-shadow: 0 0 18px rgba(0,255,148,.15);
-    }
+    .avatar{width:96px; height:96px; border-radius:50%;background:#111 url('https://images.unsplash.com/photo-1541532713592-79a0317b6b77?q=80&w=256&auto=format&fit=crop') center/cover no-repeat;box-shadow: 0 6px 24px rgba(0,0,0,.4), var(--shadow);border:2px solid rgba(255,255,255,.08);flex: none;}
+    .title-block h1{font-family: Orbitron, Montserrat, sans-serif; margin:0; font-size: clamp(28px, 5vw, 40px);letter-spacing:.5px; text-transform: uppercase;text-shadow: 0 0 18px rgba(0,255,148,.15);}
     .handle{margin-top:4px; color:var(--muted)}
-
-    /* Socials */
     .socials{display:flex; gap:14px; flex-wrap:wrap; margin-top:18px}
-    .socials a{
-      width:42px; height:42px; display:grid; place-items:center; border-radius:50%;
-      background: #12161c; border:1px solid rgba(255,255,255,.06);
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-    }
+    .socials a{width:42px; height:42px; display:grid; place-items:center; border-radius:50%;background: #12161c; border:1px solid rgba(255,255,255,.06);transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;}
     .socials a:hover{ transform: translateY(-2px); box-shadow: var(--shadow); border-color: rgba(0,255,148,.35); }
     .socials svg{width:22px; height:22px; fill: var(--text)}
-
-    /* Buttons */
     .links{margin-top:28px; display:grid; gap:16px}
-    .link{
-      display:flex; align-items:center; gap:16px; padding:18px 20px; border-radius: 16px;
-      border:1px solid rgba(255,255,255,.06); background: #12161c; text-decoration:none; color:var(--text);
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
-      position: relative;
-    }
+    .link{display:flex; align-items:center; gap:16px; padding:18px 20px; border-radius: 16px;border:1px solid rgba(255,255,255,.06); background: #12161c; text-decoration:none; color:var(--text);transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;position: relative;}
     .link:hover{ transform: translateY(-3px); box-shadow: var(--shadow-amber); border-color: rgba(242,209,61,.45); background: #161b22; }
     .link .badge{font-size:12px; padding:6px 10px; border-radius:999px; background: rgba(242,209,61,.12); color:#f7e38e; border:1px solid rgba(242,209,61,.25)}
     .link .text{flex:1}
@@ -98,65 +58,44 @@
     .link p{margin:0; color:var(--muted); font-size:13.5px}
     .link .thumb{width:44px; height:44px; border-radius:12px; overflow:hidden; flex:none; background:#0e1116; border:1px solid rgba(255,255,255,.06)}
     .link .thumb img{width:100%; height:100%; object-fit:cover}
-    .link .cta{font-weight:700; color:#101215; background: linear-gradient(135deg, var(--accent-2), #ffe87a);
-      padding:10px 14px; border-radius:10px; box-shadow: var(--shadow-amber);}
-
-    /* Footer */
+    .link .cta{font-weight:700; color:#101215; background: linear-gradient(135deg, var(--accent-2), #ffe87a);padding:10px 14px; border-radius:10px; box-shadow: var(--shadow-amber);}
     footer{margin-top:30px; color:var(--muted); font-size:13px; display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap}
     footer a{color:var(--muted); text-decoration:none}
-
-    /* Responsive tweaks */
-    @media (min-width: 900px){
-      .card{padding:48px}
-    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="card">
       <div class="glow-ring" aria-hidden="true"></div>
-
-      <!-- Header -->
       <div class="header">
         <div class="avatar" aria-hidden="true"></div>
         <div class="title-block">
           <h1>Donos do Mapa</h1>
           <div class="handle">@donosdomapa</div>
-          <div class="socials" aria-label="Redes sociais">
-            <!-- Instagram -->
-            <a href="#" aria-label="Instagram" title="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 .002 6.002A3 3 0 0 0 12 9zm5.5-.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
+          <div class="socials">
+            <a href="https://www.instagram.com/donosdomapa/" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 .002 6.002A3 3 0 0 0 12 9zm5.5-.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
             </a>
-            <!-- YouTube -->
-            <a href="#" aria-label="YouTube" title="YouTube">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5v-7L16 12l-6.4 3.5z"/></svg>
+            <a href="https://www.youtube.com/@donosdomapa" aria-label="YouTube" title="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5v-7L16 12l-6.4 3.5z"/></svg>
             </a>
-            <!-- Discord -->
-            <a href="#" aria-label="Discord" title="Discord">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.4A18 18 0 0 0 16 3l-.3.6a12 12 0 0 1 2.7 1.2 10 10 0 0 0-8.7 0A12 12 0 0 1 12 3l-.4-.1a18 18 0 0 0-4.3 1.5C3.7 7 3 10 3 13.1c1.4 1.6 3.8 2.7 6 3l.7-1.2c-1.7-.6-3-1.6-3-1.6s.2.1.5.2a11 11 0 0 0 8.4 0l.5-.2s-1.2 1-3 1.6l.7 1.2c2.3-.3 4.6-1.4 6-3 0-3.1-.7-6.2-2.2-8.7zM9.2 13.6c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8zm5.6 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8z"/></svg>
+            <a href="https://discord.gg/6cZEQQKN" aria-label="Discord" title="Discord">
+              <svg viewBox="0 0 24 24"><path d="M20.3 4.4A18 18 0 0 0 16 3l-.3.6a12 12 0 0 1 2.7 1.2 10 10 0 0 0-8.7 0A12 12 0 0 1 12 3l-.4-.1a18 18 0 0 0-4.3 1.5C3.7 7 3 10 3 13.1c1.4 1.6 3.8 2.7 6 3l.7-1.2c-1.7-.6-3-1.6-3-1.6s.2.1.5.2a11 11 0 0 0 8.4 0l.5-.2s-1.2 1-3 1.6l.7 1.2c2.3-.3 4.6-1.4 6-3 0-3.1-.7-6.2-2.2-8.7zM9.2 13.6c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8zm5.6 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8z"/></svg>
             </a>
-            <!-- Twitch -->
-            <a href="#" aria-label="Twitch" title="Twitch">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2h18v11l-5 5h-4l-3 3H7v-3H3V2zm3 2v12h4v3l3-3h4l3-3V4H6zm9 2h2v6h-2V6zm-5 0h2v6h-2V6z"/></svg>
+            <a href="https://www.twitch.tv/donosdomapa" aria-label="Twitch" title="Twitch">
+              <svg viewBox="0 0 24 24"><path d="M3 2h18v11l-5 5h-4l-3 3H7v-3H3V2zm3 2v12h4v3l3-3h4l3-3V4H6zm9 2h2v6h-2V6zm-5 0h2v6h-2V6z"/></svg>
             </a>
-            <!-- TikTok -->
-            <a href="#" aria-label="TikTok" title="TikTok">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.6 2h3a6.6 6.6 0 0 0 5.3 5.2v3a9.5 9.5 0 0 1-5.3-1.6v7.5a6.9 6.9 0 1 1-6.9-6.9c.5 0 1 .1 1.6.2V12a3.9 3.9 0 1 0 3.9 3.9V2z"/></svg>
-            </a>
-            <!-- X -->
-            <a href="#" aria-label="X" title="X/Twitter">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h4.6l4.5 6 5.9-6H21l-7.6 7.8L21 21h-4.6l-5.3-7-6 7H3l8.3-8.5L3 3z"/></svg>
+            <a href="https://www.tiktok.com/@donosdomapa" aria-label="TikTok" title="TikTok">
+              <svg viewBox="0 0 24 24"><path d="M12.6 2h3a6.6 6.6 0 0 0 5.3 5.2v3a9.5 9.5 0 0 1-5.3-1.6v7.5a6.9 6.9 0 1 1-6.9-6.9c.5 0 1 .1 1.6.2V12a3.9 3.9 0 1 0 3.9 3.9V2z"/></svg>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Links principais -->
       <div class="links">
-        <!-- ExitLag Afiliado -->
-        <a class="link" href="#" target="_blank" rel="noopener">
+        <a class="link" href="https://www.exitlag.com/refer/10215041" target="_blank" rel="noopener">
           <div class="thumb">
-            <img src="https://drive.google.com/uc?export=view&id=1Va2NDhOLSw6vOIogdmQJkddSkFDLQa8p" alt="ExitLag">
+            <img alt="ExitLag" src="images/exitlag.png"/>
           </div>
           <div class="text">
             <h3>Teste o ExitLag AGORA e jogue sem lag! ⚡</h3>
@@ -165,8 +104,7 @@
           <span class="cta">Ir agora</span>
         </a>
 
-        <!-- Parcerias / Media Kit -->
-        <a class="link" href="#" target="_blank" rel="noopener">
+        <a class="link" href="https://beacons.ai/donosdomapa/mediakit" target="_blank" rel="noopener">
           <div class="thumb">
             <img alt="Parcerias" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=200&auto=format&fit=crop"/>
           </div>
@@ -177,8 +115,7 @@
           <span class="badge">pro</span>
         </a>
 
-        <!-- Discord -->
-        <a class="link" href="#" target="_blank" rel="noopener">
+        <a class="link" href="https://discord.gg/6cZEQQKN" target="_blank" rel="noopener">
           <div class="thumb">
             <img alt="Discord" src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=200&auto=format&fit=crop"/>
           </div>
@@ -189,8 +126,7 @@
           <span class="cta">Entrar</span>
         </a>
 
-        <!-- Link extra de exemplo -->
-        <a class="link" href="#" target="_blank" rel="noopener">
+        <a class="link" href="https://www.youtube.com/@donosdomapa" target="_blank" rel="noopener">
           <div class="thumb">
             <img alt="YouTube" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=200&auto=format&fit=crop"/>
           </div>
